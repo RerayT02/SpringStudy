@@ -1,6 +1,10 @@
 import com.reray.spring.study.MySpringBean;
 import org.junit.Test;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
 
 /**
  * @author pu wang
@@ -15,7 +19,12 @@ public class MySpringBeanTest {
         System.out.println(beanName.getBeanName());
     }
 
-
+    @Test
+    public void test2() {
+        XmlBeanFactory xmlBeanFactory = new XmlBeanFactory(new ClassPathResource("application.xml"));
+        MySpringBean beanName = (MySpringBean) xmlBeanFactory.getBean("myBeanName");
+        System.out.println(beanName.getBeanName());
+    }
 
 
 }
