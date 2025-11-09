@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- 输出到控制台 -->
+    <appender name="Console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%-5p] %d{yyyy-MM-dd HH:mm:ss} [%t] %c{1} - %m%n" />
+        </layout>
+    </appender>
+
+    <!-- 设置日志级别 -->
+    <logger name="com.reray.spring">
+        <level value="DEBUG" />
+    </logger>
+
+    <logger name="org.springframework">
+        <level value="INFO" />
+    </logger>
+
+    <!-- 根日志设置 -->
+    <root>
+        <level value="WARN" />
+        <appender-ref ref="Console" />
+    </root>
+
+</log4j:configuration>
